@@ -1,1 +1,105 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: Pokemon-gb;
+  src: local("Pokemon-gb"),
+    url("./fonts/pokemon-gb-font/PokemonGb-RAeo.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-type {
+  font-size: 12px;
+  padding: 3px;
+  font-family: "Pokemon-gb", serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+  width: 105px;
+  height: 25px;
+  text-align: justify-all;
+  border-radius: 15px;
+  color: white;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  :after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.btn-type-lg {
+  font-size: initial;
+}
+
+.btn-normal {
+  background: #a0a29f;
+}
+
+.btn-grass {
+  background-color: rgb(155, 204, 80);
+}
+
+.btn-fire {
+  background-color: #fba54c;
+}
+
+.btn-flying {
+  background: #a1bbec;
+}
+
+.btn-poison {
+  background-color: #b97fc9;
+}
+
+.btn-water {
+  background: #539ddf;
+}
+
+.btn-electric {
+  background: #f2d94e;
+}
+
+.btn-fairy {
+  background: #ee90e6;
+}
+
+.btn-gound {
+  background: #da7c4d;
+}
+
+.btn-fighting {
+  background: #d3425f;
+}
+
+.btn-backgruond {
+  background: #c9bb8a;
+}
+
+.btn-psychic {
+  background: #fa8581;
+}
+
+.btn-ice {
+  background: #75d0c1;
+}
+
+.btn-steel {
+  background: #5695a3;
+}
+
+.btn-bug {
+  background: #92bc2c;
+}
+
+.btn-dragon {
+  background: #0c69c8;
+}
+
+.btn-dark {
+  background: #595761;
+}
