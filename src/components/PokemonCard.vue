@@ -1,5 +1,5 @@
 <template>
-  <article class="d-flex justify-content-center flex-column m-2" style="width: 250px">
+  <article class="d-flex justify-content-center flex-column m-2 bg-white ps-2 pe-2 pt-1" style="width: 250px">
     <img :src="sprite" v-bind:alt="spriteAlt" class="rounded card-image" style="background-color: #F2F2F2;">
     <div class="ms-3 me-3 mt-1 d-flex flex-column align-items-stretch">
       <h6 v-html="fullId" class="m-0"></h6>
