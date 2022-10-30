@@ -6,8 +6,9 @@ $secondary: #FF0000;
 @font-face {
   font-family: Pokemon-gb;
   src: local("Pokemon-gb"),
-    url("./fonts/pokemon-gb-font/PokemonGb-RAeo.ttf") format("truetype");
+  url("./fonts/pokemon-gb-font/PokemonGb-RAeo.ttf") format("truetype");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -24,10 +25,12 @@ $secondary: #FF0000;
   text-align: justify-all;
   border-radius: 15px;
   color: white;
+
   img {
     width: 20px;
     height: 20px;
   }
+
   :after {
     content: "";
     display: inline-block;
@@ -71,7 +74,7 @@ $secondary: #FF0000;
   background: #ee90e6;
 }
 
-.btn-gound {
+.btn-ground {
   background: #da7c4d;
 }
 
@@ -105,4 +108,8 @@ $secondary: #FF0000;
 
 .btn-dark {
   background: #595761;
+}
+
+.btn-rock {
+  background: #c9bb8a;
 }
