@@ -1,6 +1,7 @@
 <template>
   <app-header/>
   <main>
+    <search-bar @search="(criteria) => changeStrategy(criteria)"/>
     <div class="container list-bg-pokedex" style="padding: 0 100px">
       <pokemon-list ref="pokemonList"/>
     </div>
@@ -10,12 +11,19 @@
 <script>
 import PokemonList from "@/components/PokemonList";
 import AppHeader from "@/components/AppHeader";
+import SearchBar from "@/components/SearchBar";
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    PokemonList
+    PokemonList,
+    SearchBar
+  },
+  methods: {
+    changeStrategy(criteria) {
+      this.$refs.pokemonList.changeStrategy(criteria);
+    }
   }
 }
 </script>
