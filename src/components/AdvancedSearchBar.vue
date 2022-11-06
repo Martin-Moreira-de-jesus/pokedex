@@ -311,7 +311,7 @@ export default {
     return {
       min: 1,
       max: 905,
-      isShown: true,
+      isShown: false,
       generations: [],
     }
   },
