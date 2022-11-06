@@ -9,7 +9,11 @@ const Criteria = {
             if (matches.length > 2) return [];
             return pokemons.filter((pokemon) => {
                 const types = pokemon.types.map((type) => type.type.name);
-                return JSON.stringify(types.sort()) === JSON.stringify(matches.sort());
+                if (matches.length === 2) {
+                    return JSON.stringify(types.sort()) === JSON.stringify(matches.sort());
+                } else {
+                    return matches.some((match) => types.includes(match));
+                }
             });
         }
 
