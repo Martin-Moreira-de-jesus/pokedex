@@ -99,7 +99,7 @@ export default {
             pokemons = JSON.parse(localStorage.getItem('search-results'));
         }
 
-        const isLast = limit > pokemons.length;
+        const isLast = limit >= pokemons.length;
         const result = [];
         for (let i = 0; i < limit && pokemons.length > 0; i++) {
             result.push(pokemons.shift());
