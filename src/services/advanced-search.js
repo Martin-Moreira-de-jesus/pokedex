@@ -1,12 +1,4 @@
 const Criteria = {
-    applyRange: async (min, max, pokedex) => {
-        const {results} = await pokedex.getPokemonsList();
-        return results.filter((pokemon) => {
-            const tmp = pokemon.url.split("/");
-            const id = parseInt(tmp[tmp.length - 2]);
-            return id >= min && id <= max;
-        });
-    },
     applyTypes: (criteria, pokemons) => {
         let matches = Array.from(criteria.keys()).filter((key) => {
             const regex = new RegExp(/type-.*/);
