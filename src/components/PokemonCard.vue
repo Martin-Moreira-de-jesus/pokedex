@@ -1,5 +1,5 @@
 <template>
-  <article class="d-flex justify-content-center flex-column m-2 bg-white ps-2 pe-2 pt-1">
+  <article class="d-flex justify-content-center flex-column m-2 bg-white ps-2 pe-2 pt-1" :class="randomSlide">
     <img :src="sprite" class="rounded card-image" style="background-color: #F2F2F2;" v-bind:alt="spriteAlt">
     <div class="ms-3 me-3 mt-1 d-flex flex-column align-items-stretch">
       <h6 class="m-0" v-html="fullId"></h6>
@@ -48,7 +48,11 @@ export default {
     },
     fullId() {
       return `#${this.id.toString().padStart(4, "0")}`;
-    }
+    },
+    randomSlide() {
+      const directions = ['top', 'right', 'bottom', 'left'];
+      return `slide-${directions[Math.floor(Math.random() * 4)]}`;
+    },
   },
 }
 </script>
@@ -56,10 +60,72 @@ export default {
 <style scoped>
 article {
   width: 250px;
+  position: relative;
+}
+
+.slide-left {
+  animation: slider-left 1s;
+}
+
+.slide-right {
+  animation: slider-right 1s;
+}
+
+.slide-top {
+  animation: slider-top 1s;
+}
+
+.slide-bottom {
+  animation: slider-bottom 1s;
 }
 
 .card-image {
   width: 100%;
   height: 100%;
 }
+
+@keyframes slider-right {
+  from {
+    opacity: 0;
+    right: -100px;
+  }
+  to {
+    right: 0;
+    opacity: 100%;
+  }
+}
+
+@keyframes slider-left {
+  from {
+    opacity: 0;
+    left: -100px;
+  }
+  to {
+    left: 0;
+    opacity: 100%;
+  }
+}
+
+@keyframes slider-top {
+  from {
+    opacity: 0;
+    top: -100px;
+  }
+  to {
+    top: 0;
+    opacity: 100%;
+  }
+}
+
+@keyframes slider-bottom {
+  from {
+    opacity: 0;
+    top: -100px;
+  }
+  to {
+    top: 0;
+    opacity: 100%;
+  }
+}
+
 </style>
