@@ -4,7 +4,7 @@
       <label class="search-label mt-3" for="search" style="font-size: 20px;">Enter name or number</label>
       <div class="search-container d-flex w-100">
         <input id="search" v-model="searchCriteria" type="text">
-        <button class="btn ms-2  btn-primary search-button p-0 m-0" @click="search()">
+        <button class="btn ms-2 btn-primary search-button m-0" @click="search()">
           <img :src="require('@/assets/images/search-icon.png')" alt="search icon" class="">
         </button>
       </div>
@@ -52,6 +52,11 @@ export default {
 }
 
 .search-button img {
-  height: 40px;
+  height: 35px;
+}
+
+.search-button {
+  border: 3px solid grey;
+  padding: 0 1px;
 }
 </style>
