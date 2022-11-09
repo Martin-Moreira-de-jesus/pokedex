@@ -203,7 +203,8 @@
                     class="range-input" max="905"
                     min="1"
                     name="range-lowest"
-                    type="number">
+                    type="number"
+                    @focusout="onFocusOutMin">
               </label>
               <p class="ms-2 me-2">-</p>
               <label>
@@ -211,7 +212,8 @@
                        class="range-input" max="905"
                        min="1"
                        name="range-highest"
-                       type="number">
+                       type="number"
+                       @focusout="onFocusOutMax">
               </label>
             </div>
           </div>
@@ -325,30 +327,28 @@ export default {
     },
     async getGenerations() {
       this.generations = await API.getGenerations();
-    }
+    },
+    onFocusOutMax() {
+      if (this.max < this.min) {
+        this.max = this.min;
+      }
+      if (this.max>= 905) {
+        this.max = 905;
+      }
+    },
+    onFocusOutMin() {
+      if (this.min > this.max) {
+        this.min = this.max;
+      }
+
+      if (this.min <= 0) {
+        this.min = 1;
+      }
+    },
   },
   mounted() {
     this.getGenerations();
   },
-  watch: {
-    min(newVal) {
-      if (newVal > this.max) {
-        this.min = this.max;
-      }
-
-      if (newVal <= 0) {
-        this.min = 1;
-      }
-    },
-    max(newVal) {
-      if (newVal < this.min) {
-        this.max = this.min;
-      }
-      if (newVal >= 905) {
-        this.max = 905;
-      }
-    }
-  }
 }
 </script>
 
