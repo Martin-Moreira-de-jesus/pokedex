@@ -3,47 +3,92 @@ import Criteria from "@/services/advanced-search";
 
 const pokedex = new Pokedex();
 
+const pokemonCount = 905;
+
+function sortByNameDesc(a, b) {
+    if (a.name > b.name) return -1;
+    if (a.name < b.name) return 1;
+    return 0;
+}
+
+function sortByNameAsc(a, b) {
+    if (a.name > b.name) return 1;
+    if (a.name < b.name) return -1;
+    return 0;
+}
+
+function mapPokemons(raw) {
+    return raw.map((element) => {
+        return {
+            id: parseInt(element.id),
+            name: element.name,
+            sprite: element.sprites.other["official-artwork"].front_default,
+            types: element.types,
+        };
+    });
+}
+
+function applySort(orderBy, pokemons) {
+    let result;
+    switch (parseInt(orderBy)) {
+        case 1:
+            result = pokemons;
+            break;
+        case 2:
+            result = pokemons.reverse();
+            break;
+        case 3:
+            result = pokemons.sort(sortByNameAsc);
+            break;
+        case 4:
+            result = pokemons.sort(sortByNameDesc);
+            break;
+    }
+    return result;
+}
+
 export default {
-    getPokemons: async (offset, limit) => {
-        const response = await pokedex.getPokemonsList({
-            offset: offset,
-            limit: limit,
+    getPokemons: async (offset, limit, orderBy = 1) => {
+        let { results } = await pokedex.getPokemonsList({
+            offset: 0,
+            limit: pokemonCount
         });
 
-        const isLast = !response.next;
+        results = applySort(orderBy, results);
 
-        const promises = response.results.map((element) =>
-            pokedex.getPokemonByName(element.name)
-        );
+        const isLast = pokemonCount <= offset + limit;
+
+        const promises = [];
+        for (let i = offset; i < offset + limit && i < pokemonCount; i++) {
+            promises.push(pokedex.getPokemonByName(results[i].name));
+        }
 
         const data = await Promise.all(promises);
 
-        const pokemons = data.map((element) => {
-            return {
-                id: parseInt(element.id),
-                name: element.name,
-                sprite: element.sprites.other["official-artwork"].front_default,
-                types: element.types,
-            };
-        });
+        const pokemons = mapPokemons(data);
 
         return {
             pokemons: pokemons,
             isLast: isLast,
         };
     },
-    searchPokemons: async (criteria, offset, limit) => {
-        const response = await pokedex.getPokemonsList();
+    searchPokemons: async (criteria, offset, limit, orderBy = 1) => {
+        const response = await pokedex.getPokemonsList({
+            offset: 0,
+            limit: pokemonCount,
+        });
 
         const regex = new RegExp(`.*${criteria}.*`, "i");
 
-        const matches = response.results.filter(
+        let matches = response.results.filter(
             (result) =>
                 result.name.match(regex) ||
                 result.url
                     .substr(result.url.indexOf("pokemon/"), result.url.length - 1)
                     .match(regex)
         );
+
+        matches = applySort(orderBy, matches);
 
         const isLast = matches.length <= offset + limit;
 
@@ -54,14 +99,7 @@ export default {
 
         const data = await Promise.all(promises);
 
-        const pokemons = data.map((element) => {
-            return {
-                id: parseInt(element.id),
-                name: element.name,
-                sprite: element.sprites.other["official-artwork"].front_default,
-                types: element.types,
-            };
-        });
+        const pokemons = mapPokemons(data);
 
         return {
             pokemons: pokemons,
@@ -72,7 +110,7 @@ export default {
         const response = await pokedex.getGenerations();
         return response.results;
     },
-    searchPokemonsAdvanced: async (criteria, offset, limit) => {
+    searchPokemonsAdvanced: async (criteria, offset, limit, orderBy = 1) => {
         let pokemons;
         if (offset === 0) {
             localStorage.removeItem('search-results');
@@ -87,28 +125,23 @@ export default {
             pokemons = Criteria.applyWeight(criteria, pokemons);
             pokemons = await Criteria.applyGeneration(criteria, pokemons, pokedex);
 
-            pokemons = pokemons.map((element) => {
-                return {
-                    id: parseInt(element.id),
-                    name: element.name,
-                    sprite: element.sprites.other["official-artwork"].front_default,
-                    types: element.types,
-                };
-            });
+            pokemons = mapPokemons(pokemons);
+
+            localStorage.setItem('search-results', JSON.stringify(pokemons));
         } else {
             pokemons = JSON.parse(localStorage.getItem('search-results'));
         }
 
+        pokemons = applySort(orderBy, pokemons);
+
         const isLast = limit >= pokemons.length;
         const result = [];
-        for (let i = 0; i < limit && pokemons.length > 0; i++) {
-            result.push(pokemons.shift());
+        for (let i = offset; i < offset + limit && i < pokemons.length; i++) {
+            result.push(pokemons[i]);
         }
 
         if (isLast) {
             localStorage.removeItem('search-results');
-        } else {
-            localStorage.setItem('search-results', JSON.stringify(pokemons));
         }
 
         return {

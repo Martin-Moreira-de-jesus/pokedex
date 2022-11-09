@@ -1,4 +1,5 @@
 <template>
+  <sort-options @sort="onSort" />
   <section>
     <div class="bg-white container flex-fill d-flex flex-row flex-wrap justify-content-evenly">
       <pokemon-card v-for="pokemon in pokemons" :id="pokemon.id" :key="pokemon.id" :name="pokemon.name"
@@ -26,6 +27,7 @@ import API from "@/services/api";
 import {Vue3Lottie} from 'vue3-lottie';
 import Loader from '@/assets/lotties/loader.json'
 import 'vue3-lottie/dist/style.css'
+import SortOptions from "@/components/SortOptions";
 
 export default {
   data() {
@@ -40,6 +42,7 @@ export default {
       isLoading: false,
       pokemons: [],
       Loader,
+      orderBy: 1,
     }
   },
   methods: {
@@ -49,13 +52,13 @@ export default {
         let result;
         switch (this.strategy) {
           case 'search':
-            result = await API.searchPokemons(this.searchCriteria, this.offset, this.limit);
+            result = await API.searchPokemons(this.searchCriteria, this.offset, this.limit, this.orderBy);
             break;
           case 'list':
-            result = await API.getPokemons(this.offset, this.limit);
+            result = await API.getPokemons(this.offset, this.limit, this.orderBy);
             break;
           case 'advanced-search':
-            result = await API.searchPokemonsAdvanced(this.advancedSearchCriteria, this.offset, this.limit);
+            result = await API.searchPokemonsAdvanced(this.advancedSearchCriteria, this.offset, this.limit, this.orderBy);
             break;
         }
 
@@ -88,6 +91,12 @@ export default {
       this.isLast = false;
 
       this.getPokemons();
+    },
+    onSort(sortBy) {
+      this.pokemons = [];
+      this.offset = 0;
+      this.orderBy = sortBy;
+      this.getPokemons();
     }
   },
   mounted() {
@@ -95,6 +104,7 @@ export default {
   },
   name: 'App',
   components: {
+    SortOptions,
     PokemonCard,
     Vue3Lottie,
   },
