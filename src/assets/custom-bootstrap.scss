@@ -1,6 +1,30 @@
 $primary: #3B4CCA;
-
 $progress-height: 100%;
+$type-normal: #a0a29f;
+$type-grass: rgb(155, 204, 80);
+$type-fire: #fba54c;
+$type-flying: #a1bbec;
+$type-poison: #b97fc9;
+$type-water: #539ddf;
+$type-electric: #f2d94e;
+$type-fairy: #ee90e6;
+$type-ground: #da7c4d;
+$type-fighting: #d3425f;
+$type-psychic: #fa8581;
+$type-ice: #75d0c1;
+$type-steel: #5695a3;
+$type-bug: #92bc2c;
+$type-dragon: #0c69c8;
+$type-dark: #595761;
+$type-rock: #c9bb8a;
+$type-ghost: #5f6dbc;
+$type-chip-box-shadow: 0 0 20px;
+
+$moveTypes: (
+  physical: #C92112,
+  special: #4F5870,
+  status: #8C888C,
+);
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
@@ -43,119 +67,197 @@ $progress-height: 100%;
   font-size: initial;
 }
 
-.btn-normal {
-  background: #a0a29f;
+.type-chip {
+  padding: 10px;
+  border-radius: 50%;
+  filter: saturate(100%) brightness(110%);
+  margin: 0 5px;
 }
 
-.btn-grass {
-  background-color: rgb(155, 204, 80);
+.type-chip-normal {
+  box-shadow: $type-chip-box-shadow $type-normal;
 }
 
-.btn-fire {
-  background-color: #fba54c;
+.type-chip-grass {
+  box-shadow: $type-chip-box-shadow $type-grass;
 }
 
-.btn-flying {
-  background: #a1bbec;
+.type-chip-fire {
+  box-shadow: $type-chip-box-shadow $type-fire;
 }
 
-.btn-poison {
-  background-color: #b97fc9;
+.type-chip-flying {
+  box-shadow: $type-chip-box-shadow $type-flying;
 }
 
-.btn-water {
-  background: #539ddf;
+.type-chip-poison {
+  box-shadow: $type-chip-box-shadow $type-poison;
 }
 
-.btn-electric {
-  background: #f2d94e;
+.type-chip-water {
+  box-shadow: $type-chip-box-shadow $type-water;
 }
 
-.btn-fairy {
-  background: #ee90e6;
+.type-chip-electric {
+  box-shadow: $type-chip-box-shadow $type-electric;
 }
 
-.btn-ground {
-  background: #da7c4d;
+.type-chip-fairy {
+  box-shadow: $type-chip-box-shadow $type-fairy;
 }
 
-.btn-fighting {
-  background: #d3425f;
+.type-chip-ground {
+  box-shadow: $type-chip-box-shadow $type-ground;
 }
 
-.btn-backgruond {
-  background: #c9bb8a;
+.type-chip-fighting {
+  box-shadow: $type-chip-box-shadow $type-fighting;
 }
 
-.btn-psychic {
-  background: #fa8581;
+.type-chip-psychic {
+  box-shadow: $type-chip-box-shadow $type-psychic;
 }
 
-.btn-ice {
-  background: #75d0c1;
+.type-chip-ice {
+  box-shadow: $type-chip-box-shadow $type-ice;
 }
 
-.btn-steel {
-  background: #5695a3;
+.type-chip-steel {
+  box-shadow: $type-chip-box-shadow $type-steel;
 }
 
-.btn-bug {
-  background: #92bc2c;
+.type-chip-bug {
+  box-shadow: $type-chip-box-shadow $type-bug;
 }
 
-.btn-dragon {
-  background: #0c69c8;
+.type-chip-dragon {
+  box-shadow: $type-chip-box-shadow $type-dragon;
 }
 
-.btn-dark {
-  background: #595761;
+.type-chip-dark {
+  box-shadow: $type-chip-box-shadow $type-dark;
 }
 
-.btn-rock {
-  background: #c9bb8a;
+.type-chip-rock {
+  box-shadow: $type-chip-box-shadow $type-rock;
 }
 
-.btn-ghost {
-  background: #5f6dbc;
+.type-chip-ghost {
+  box-shadow: $type-chip-box-shadow $type-ghost;
 }
 
-.pokemon-purple {
+.chip-normal {
+  background: $type-normal;
+}
+
+.chip-grass {
+  background-color: $type-grass;
+}
+
+.chip-fire {
+  background-color: $type-fire;
+}
+
+.chip-flying {
+  background: $type-flying;
+}
+
+.chip-poison {
+  background-color: $type-poison;
+}
+
+.chip-water {
+  background: $type-water;
+}
+
+.chip-electric {
+  background: $type-electric;
+}
+
+.chip-fairy {
+  background: $type-fairy;
+}
+
+.chip-ground {
+  background: $type-ground;
+}
+
+.chip-fighting {
+  background: $type-fighting;
+}
+
+.chip-psychic {
+  background: $type-psychic;
+}
+
+.chip-ice {
+  background: $type-ice;
+}
+
+.chip-steel {
+  background: $type-steel;
+}
+
+.chip-bug {
+  background: $type-bug;
+}
+
+.chip-dragon {
+  background: $type-dragon;
+}
+
+.chip-dark {
+  background: $type-dark;
+}
+
+.chip-rock {
+  background: $type-rock;
+}
+
+.chip-ghost {
+  background: $type-ghost;
+}
+
+.chip-purple {
   background: #C183C1;
 }
 
-.pokemon-gray {
+.chip-gray {
   background: #D1D1E0;
 }
 
-.pokemon-white {
+.chip-white {
   background-color: #d5dbe1;
+  color: black;
 }
 
-.pokemon-pink {
+.chip-pink {
   background: #F4BDC9;
 }
 
-.pokemon-brown {
+.chip-brown {
   background: #C96;
 }
 
-.pokemon-gray {
+.chip-gray {
   background: #BBB;
 }
 
-.pokemon-green {
+.chip-green {
   background: #64D364;
+  color: white;
 }
 
-.pokemon-yellow {
-  background: #FF9;
+.chip-yellow {
+  background: $type-electric;
+  color: black;
 }
 
-.pokemon-blue {
+.chip-blue {
   background: #94DBEE;
 }
 
-.pokemon-red {
+.chip-red {
   background: #EC8484;
 }
 
