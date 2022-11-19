@@ -27,6 +27,15 @@ export function mapPokemons(raw) {
     });
 }
 
+export function mapPokemon(element) {
+    return {
+        id: parseInt(element.id),
+        name: element.name,
+        sprite: element.sprites.other["official-artwork"].front_default,
+        types: element.types,
+    }
+}
+
 function applySort(orderBy, pokemons) {
     let result;
     switch (parseInt(orderBy)) {
