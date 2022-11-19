@@ -1,7 +1,11 @@
 <template>
   <article class="d-flex justify-content-center flex-column m-2 bg-white ps-2 pe-2 pt-1"
            :class="randomSlide" @click="$router.push({ name: 'pokedex-entry', params: { id: id } })">
-    <img :src="sprite" class="rounded card-image" style="background-color: #F2F2F2;" v-bind:alt="spriteAlt">
+    <img :src="imageLoading ? require('@/assets/images/pokeball.png') : sprite"
+         class="rounded card-image"
+         style="background-color: #F2F2F2;"
+         :alt="spriteAlt"
+         @load="imageLoading = false">
     <div class="ms-3 me-3 mt-1 d-flex flex-column align-items-stretch">
       <h6 class="m-0" v-html="fullId"></h6>
       <h5 class="p-0 m-0 m-0 text-capitalize" v-html="name"></h5>
@@ -35,6 +39,11 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  data() {
+    return {
+      imageLoading: true,
+    }
   },
   name: "PokemonCard",
   methods: {
