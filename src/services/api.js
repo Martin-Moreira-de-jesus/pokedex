@@ -1,9 +1,8 @@
 import {Pokedex} from "pokeapi-js-wrapper";
 import Criteria from "@/services/advanced-search";
+import {LAST_POKEMON_ID} from "@/services/constants";
 
-const pokedex = new Pokedex();
-
-const pokemonCount = 905;
+export const pokedex = new Pokedex();
 
 function sortByNameDesc(a, b) {
     if (a.name > b.name) return -1;
@@ -17,7 +16,7 @@ function sortByNameAsc(a, b) {
     return 0;
 }
 
-function mapPokemons(raw) {
+export function mapPokemons(raw) {
     return raw.map((element) => {
         return {
             id: parseInt(element.id),
@@ -57,15 +56,15 @@ export default {
     getPokemons: async (offset, limit, orderBy = 1) => {
         let { results } = await pokedex.getPokemonsList({
             offset: 0,
-            limit: pokemonCount
+            limit: LAST_POKEMON_ID
         });
 
         results = applySort(orderBy, results);
 
-        const isLast = pokemonCount <= offset + limit;
+        const isLast = LAST_POKEMON_ID <= offset + limit;
 
         const promises = [];
-        for (let i = offset; i < offset + limit && i < pokemonCount; i++) {
+        for (let i = offset; i < offset + limit && i < LAST_POKEMON_ID; i++) {
             promises.push(pokedex.getPokemonByName(results[i].name));
         }
 
@@ -81,7 +80,7 @@ export default {
     searchPokemons: async (criteria, offset, limit, orderBy = 1) => {
         const response = await pokedex.getPokemonsList({
             offset: 0,
-            limit: pokemonCount,
+            limit: LAST_POKEMON_ID,
         });
 
         const regex = new RegExp(`.*${criteria}.*`, "i");
