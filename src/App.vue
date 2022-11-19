@@ -28,8 +28,7 @@ body {
   background: url("assets/bg-main.png");
 }
 
-.list-bg-pokedex {
+.main-bg-pokedex {
   background: url("assets/bg-pokedex.png") white;
 }
-
 </style>

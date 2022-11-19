@@ -1,5 +1,7 @@
 $primary: #3B4CCA;
 
+$progress-height: 100%;
+
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
 @font-face {
@@ -115,4 +117,50 @@ $primary: #3B4CCA;
 
 .btn-ghost {
   background: #5f6dbc;
+}
+
+.pokemon-purple {
+  background: #C183C1;
+}
+
+.pokemon-gray {
+  background: #D1D1E0;
+}
+
+.pokemon-white {
+  background-color: #d5dbe1;
+}
+
+.pokemon-pink {
+  background: #F4BDC9;
+}
+
+.pokemon-brown {
+  background: #C96;
+}
+
+.pokemon-gray {
+  background: #BBB;
+}
+
+.pokemon-green {
+  background: #64D364;
+}
+
+.pokemon-yellow {
+  background: #FF9;
+}
+
+.pokemon-blue {
+  background: #94DBEE;
+}
+
+.pokemon-red {
+  background: #EC8484;
+}
+
+@if $enable-transitions {
+  @keyframes progress-bar-stripes {
+    0% { background-position-x: $progress-height; }
+  }
 }

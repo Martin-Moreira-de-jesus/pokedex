@@ -2,7 +2,7 @@
   <search-bar @search="(criteria) => changeStrategy(criteria)"/>
   <div class="container" style="height: 20px; background-color:#616161;"></div>
   <advanced-search-bar ref="searchBar" @advanced-search="(data) => changeStrategy('', data)"/>
-  <div class="container list-bg-pokedex" style="padding: 0 100px">
+  <div class="container main-bg-pokedex" style="padding: 0 100px">
     <advanced-search-button @click="$refs.searchBar.updateVisibility()"/>
     <pokemon-list ref="pokemonList"/>
   </div>
