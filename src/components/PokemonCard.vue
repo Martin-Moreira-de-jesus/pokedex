@@ -1,15 +1,13 @@
 <template>
-  <article class="d-flex justify-content-center flex-column m-2 bg-white ps-2 pe-2 pt-1" :class="randomSlide">
+  <article class="d-flex justify-content-center flex-column m-2 bg-white ps-2 pe-2 pt-1"
+           :class="randomSlide" @click="$router.push({ name: 'pokedex-entry', params: { id: id } })">
     <img :src="sprite" class="rounded card-image" style="background-color: #F2F2F2;" v-bind:alt="spriteAlt">
     <div class="ms-3 me-3 mt-1 d-flex flex-column align-items-stretch">
       <h6 class="m-0" v-html="fullId"></h6>
       <h5 class="p-0 m-0 m-0 text-capitalize" v-html="name"></h5>
       <ul class="d-flex justify-content-around list-unstyled">
         <li v-for="type in types" :key="type.slot">
-          <button :class="typeClass(type.type.name)" class="btn-type p-0 align-bottom"
-                  style="display: inline-flex; align-items: flex-end; justify-content: center">
-            {{ type.type.name }}
-          </button>
+          <pokemon-large-chip :class-name="type.type.name" />
         </li>
       </ul>
     </div>
@@ -17,7 +15,9 @@
 </template>
 
 <script>
+import PokemonLargeChip from "@/components/PokemonLargeChip";
 export default {
+  components: {PokemonLargeChip},
   props: {
     id: {
       type: Number,
@@ -61,6 +61,10 @@ export default {
 article {
   width: 250px;
   position: relative;
+}
+
+article:hover {
+   transform: matrix(1.1, 0, 0, 1.1, 0, 2);
 }
 
 .slide-left {
