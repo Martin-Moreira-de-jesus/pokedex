@@ -1,8 +1,8 @@
 <template>
   <header class="navbar navbar-light bg-light d-flex justify-content-center">
-    <a class="navbar-brand" href="">
+    <router-link :to="{name: 'pokedex'}" class="navbar-brand">
       <img src="../assets/pokemon-logo.svg" class="navbar-brand" alt="brand logo" height="900" width="1600">
-    </a>
+    </router-link>
   </header>
 </template>
 
