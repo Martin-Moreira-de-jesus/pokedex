@@ -48,6 +48,12 @@ function applySort(orderBy, pokemons) {
 }
 
 export default {
+    getPokemon: async (identifier) => {
+        return await pokedex.getPokemonByName(identifier);
+    },
+    getPokemonSpecie: async (specie) => {
+        return await pokedex.getPokemonSpeciesByName(specie);
+    },
     getPokemons: async (offset, limit, orderBy = 1) => {
         let { results } = await pokedex.getPokemonsList({
             offset: 0,
