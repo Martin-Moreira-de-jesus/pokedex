@@ -47,7 +47,7 @@ export default {
       return `${this.name} sprite`;
     },
     fullId() {
-      return `#${this.id.toString().padStart(4, "0")}`;
+      return `#${this.id.toString().padStart(3, "0")}`;
     },
     randomSlide() {
       const directions = ['top', 'right', 'bottom', 'left'];
