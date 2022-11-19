@@ -266,3 +266,9 @@ $moveTypes: (
     0% { background-position-x: $progress-height; }
   }
 }
+
+@media (max-width: 992px) {
+  .hide-lg {
+    display: none;
+  }
+}
