@@ -50,6 +50,7 @@
 import {mapPokemon, pokedex} from "@/services/api";
 import PokemonCard from "@/components/PokemonCard";
 import PokemonDetailEvolutionArrow from "@/components/PokemonDetailEvolutionArrow";
+import {extractIdFromUrl} from "@/services/utils";
 
 export default {
   name: "PokemonDetailEvolutionNode",
@@ -80,8 +81,15 @@ export default {
   },
   methods: {
     async initPokemonDetail() {
-      const pokemon = await pokedex.getPokemonByName(this.evolutionChain.species.name);
-      this.pokemon = mapPokemon(pokemon);
+      try {
+        const id = extractIdFromUrl(this.evolutionChain.species.url)
+        console.log(id);
+        const pokemon = await pokedex.getPokemonByName(id);
+        this.pokemon = mapPokemon(pokemon);
+      } catch(err) {
+        console.log(err);
+        alert("Something went wrong");
+      }
     },
     computePosition(evolutionsLength, index, depth) {
       if (evolutionsLength === 1) {
@@ -97,7 +105,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.position);
     this.initPokemonDetail();
   },
 }
