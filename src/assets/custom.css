@@ -4687,11 +4687,11 @@ textarea.form-control-lg {
 
 @keyframes progress-bar-stripes {
   0% {
-    background-position-x: 1rem;
+    background-position-x: 100%;
   }
 }
 .progress {
-  --bs-progress-height: 1rem;
+  --bs-progress-height: 100%;
   --bs-progress-font-size: 0.75rem;
   --bs-progress-bg: #e9ecef;
   --bs-progress-border-radius: 0.375rem;
@@ -10806,80 +10806,210 @@ textarea.form-control-lg {
   font-size: initial;
 }
 
-.btn-normal {
+.type-chip {
+  padding: 10px;
+  border-radius: 50%;
+  filter: saturate(100%) brightness(110%);
+  margin: 0 5px;
+}
+
+.type-chip-normal {
+  box-shadow: 0 0 20px #a0a29f;
+}
+
+.type-chip-grass {
+  box-shadow: 0 0 20px rgb(155, 204, 80);
+}
+
+.type-chip-fire {
+  box-shadow: 0 0 20px #fba54c;
+}
+
+.type-chip-flying {
+  box-shadow: 0 0 20px #a1bbec;
+}
+
+.type-chip-poison {
+  box-shadow: 0 0 20px #b97fc9;
+}
+
+.type-chip-water {
+  box-shadow: 0 0 20px #539ddf;
+}
+
+.type-chip-electric {
+  box-shadow: 0 0 20px #f2d94e;
+}
+
+.type-chip-fairy {
+  box-shadow: 0 0 20px #ee90e6;
+}
+
+.type-chip-ground {
+  box-shadow: 0 0 20px #da7c4d;
+}
+
+.type-chip-fighting {
+  box-shadow: 0 0 20px #d3425f;
+}
+
+.type-chip-psychic {
+  box-shadow: 0 0 20px #fa8581;
+}
+
+.type-chip-ice {
+  box-shadow: 0 0 20px #75d0c1;
+}
+
+.type-chip-steel {
+  box-shadow: 0 0 20px #5695a3;
+}
+
+.type-chip-bug {
+  box-shadow: 0 0 20px #92bc2c;
+}
+
+.type-chip-dragon {
+  box-shadow: 0 0 20px #0c69c8;
+}
+
+.type-chip-dark {
+  box-shadow: 0 0 20px #595761;
+}
+
+.type-chip-rock {
+  box-shadow: 0 0 20px #c9bb8a;
+}
+
+.type-chip-ghost {
+  box-shadow: 0 0 20px #5f6dbc;
+}
+
+.chip-normal {
   background: #a0a29f;
 }
 
-.btn-grass {
+.chip-grass {
   background-color: rgb(155, 204, 80);
 }
 
-.btn-fire {
+.chip-fire {
   background-color: #fba54c;
 }
 
-.btn-flying {
+.chip-flying {
   background: #a1bbec;
 }
 
-.btn-poison {
+.chip-poison {
   background-color: #b97fc9;
 }
 
-.btn-water {
+.chip-water {
   background: #539ddf;
 }
 
-.btn-electric {
+.chip-electric {
   background: #f2d94e;
+  color: black !important;
 }
 
-.btn-fairy {
+.chip-fairy {
   background: #ee90e6;
 }
 
-.btn-ground {
+.chip-ground {
   background: #da7c4d;
 }
 
-.btn-fighting {
+.chip-fighting {
   background: #d3425f;
 }
 
-.btn-backgruond {
-  background: #c9bb8a;
-}
-
-.btn-psychic {
+.chip-psychic {
   background: #fa8581;
 }
 
-.btn-ice {
+.chip-ice {
   background: #75d0c1;
 }
 
-.btn-steel {
+.chip-steel {
   background: #5695a3;
 }
 
-.btn-bug {
+.chip-bug {
   background: #92bc2c;
 }
 
-.btn-dragon {
+.chip-dragon {
   background: #0c69c8;
 }
 
-.btn-dark {
+.chip-dark {
   background: #595761;
 }
 
-.btn-rock {
+.chip-rock {
   background: #c9bb8a;
 }
 
-.btn-ghost {
+.chip-ghost {
   background: #5f6dbc;
+}
+
+.chip-purple {
+  background: #C183C1;
+}
+
+.chip-gray {
+  background: #D1D1E0;
+}
+
+.chip-white {
+  background-color: #d5dbe1;
+  color: black;
+}
+
+.chip-pink {
+  background: #F4BDC9;
+}
+
+.chip-brown {
+  background: #C96;
+}
+
+.chip-gray {
+  background: #BBB;
+}
+
+.chip-green {
+  background: #64D364;
+  color: white;
+}
+
+.chip-yellow {
+  background: #f2d94e;
+  color: black;
+}
+
+.chip-blue {
+  background: #94DBEE;
+}
+
+.chip-red {
+  background: #EC8484;
+}
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position-x: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .hide-lg {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=custom.css.map */
