@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: "StatDetail",
+  name: "PokemonItemStats",
   props: {
     pokemon: {
       type: Object,

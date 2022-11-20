@@ -10,90 +10,63 @@
           <div class="d-flex justify-content-between">
             <ul class="list-unstyled">
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-normal"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">normal
-                </button>
+                <pokemon-large-chip class-name="normal"/>
                 <input id="type-normal" class="type-input" name="type-normal" type="checkbox">
                 <label class="type-label" for="type-normal">T</label>
                 <input id="weakness-normal" class="type-input" name="weakness-normal" type="checkbox">
                 <label class="type-label" for="weakness-normal">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-fighting"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">Fighting
-                </button>
+                <pokemon-large-chip class-name="fighting"/>
                 <input id="type-fighting" class="type-input" name="type-fighting" type="checkbox">
                 <label class="type-label" for="type-fighting">T</label>
                 <input id="weakness-fighting" class="type-input" name="weakness-fighting" type="checkbox">
                 <label class="type-label" for="weakness-fighting">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-flying"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">flying
-                </button>
+                <pokemon-large-chip class-name="flying"/>
                 <input id="type-flying" class="type-input" name="type-flying" type="checkbox">
                 <label class="type-label" for="type-flying">T</label>
                 <input id="weakness-flying" class="type-input" name="weakness-flying" type="checkbox">
                 <label class="type-label" for="weakness-flying">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-poison"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">poison
-                </button>
+                <pokemon-large-chip class-name="poison"/>
                 <input id="type-poison" class="type-input" name="type-poison" type="checkbox">
                 <label class="type-label" for="type-poison">T</label>
                 <input id="weakness-poison" class="type-input" name="weakness-poison" type="checkbox">
                 <label class="type-label" for="weakness-poison">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-ground"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">ground
-                </button>
+                <pokemon-large-chip class-name="ground"/>
                 <input id="type-ground" class="type-input" name="type-ground" type="checkbox">
                 <label class="type-label" for="type-ground">T</label>
                 <input id="weakness-ground" class="type-input" name="weakness-ground" type="checkbox">
                 <label class="type-label" for="weakness-ground">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-rock"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">rock
-                </button>
+                <pokemon-large-chip class-name="rock"/>
                 <input id="type-rock" class="type-input" name="type-rock" type="checkbox">
                 <label class="type-label" for="type-rock">T</label>
                 <input id="weakness-rock" class="type-input" name="weakness-rock" type="checkbox">
                 <label class="type-label" for="weakness-rock">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-bug"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">bug
-                </button>
+                <pokemon-large-chip class-name="bug"/>
                 <input id="type-bug" class="type-input" name="type-bug" type="checkbox">
                 <label class="type-label" for="type-bug">T</label>
                 <input id="weakness-bug" class="type-input" name="weakness-bug" type="checkbox">
                 <label class="type-label" for="weakness-bug">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-ghost"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">ghost
-                </button>
+                <pokemon-large-chip class-name="ghost"/>
                 <input id="type-ghost" class="type-input" name="type-ghost" type="checkbox">
                 <label class="type-label" for="type-ghost">T</label>
                 <input id="weakness-ghost" class="type-input" name="weakness-ghost" type="checkbox">
                 <label class="type-label" for="weakness-ghost">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-steel"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">steel
-                </button>
+                <pokemon-large-chip class-name="steel"/>
                 <input id="type-steel" class="type-input" name="type-steel" type="checkbox">
                 <label class="type-label" for="type-steel">T</label>
                 <input id="weakness-steel" class="type-input" name="weakness-steel" type="checkbox">
@@ -102,90 +75,63 @@
             </ul>
             <ul class="list-unstyled">
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-fire"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">fire
-                </button>
+                <pokemon-large-chip class-name="fire"/>
                 <input id="type-fire" class="type-input" name="type-fire" type="checkbox">
                 <label class="type-label" for="type-fire">T</label>
                 <input id="weakness-fire" class="type-input" name="weakness-fire" type="checkbox">
                 <label class="type-label" for="weakness-fire">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-water"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">water
-                </button>
+                <pokemon-large-chip class-name="water"/>
                 <input id="type-water" class="type-input" name="type-water" type="checkbox">
                 <label class="type-label" for="type-water">T</label>
                 <input id="weakness-water" class="type-input" name="weakness-water" type="checkbox">
                 <label class="type-label" for="weakness-water">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-grass"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">grass
-                </button>
+                <pokemon-large-chip class-name="grass"/>
                 <input id="type-grass" class="type-input" name="type-grass" type="checkbox">
                 <label class="type-label" for="type-grass">T</label>
                 <input id="weakness-grass" class="type-input" name="weakness-grass" type="checkbox">
                 <label class="type-label" for="weakness-grass">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-electric"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">electric
-                </button>
+                <pokemon-large-chip class-name="electric"/>
                 <input id="type-electric" class="type-input" name="type-electric" type="checkbox">
                 <label class="type-label" for="type-electric">T</label>
                 <input id="weakness-electric" class="type-input" name="weakness-electric" type="checkbox">
                 <label class="type-label" for="weakness-electric">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-psychic"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">psychic
-                </button>
+                <pokemon-large-chip class-name="psychic"/>
                 <input id="type-psychic" class="type-input" name="type-psychic" type="checkbox">
                 <label class="type-label" for="type-psychic">T</label>
                 <input id="weakness-psychic" class="type-input" name="weakness-psychic" type="checkbox">
                 <label class="type-label" for="weakness-psychic">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-ice"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">ice
-                </button>
+                <pokemon-large-chip class-name="ice"/>
                 <input id="type-ice" class="type-input" name="type-ice" type="checkbox">
                 <label class="type-label" for="type-ice">T</label>
                 <input id="weakness-ice" class="type-input" name="weakness-ice" type="checkbox">
                 <label class="type-label" for="weakness-ice">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-dragon"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">dragon
-                </button>
+                <pokemon-large-chip class-name="dragon"/>
                 <input id="type-dragon" class="type-input" name="type-dragon" type="checkbox">
                 <label class="type-label" for="type-dragon">T</label>
                 <input id="weakness-dragon" class="type-input" name="weakness-dragon" type="checkbox">
                 <label class="type-label" for="weakness-dragon">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-dark"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">dark
-                </button>
+                <pokemon-large-chip class-name="dark"/>
                 <input id="type-dark" class="type-input" name="type-dark" type="checkbox">
                 <label class="type-label" for="type-dark">T</label>
                 <input id="weakness-dark" class="type-input" name="weakness-dark" type="checkbox">
                 <label class="type-label" for="weakness-dark">W</label>
               </li>
               <li class="d-flex flex-row">
-                <button class="btn-type p-0 btn-fairy"
-                        style="display: inline-flex; align-items: flex-end; justify-content: center"
-                        type="button">fairy
-                </button>
+                <pokemon-large-chip class-name="fairy"/>
                 <input id="type-fairy" class="type-input" name="type-fairy" type="checkbox">
                 <label class="type-label" for="type-fairy">T</label>
                 <input id="weakness-fairy" class="type-input" name="weakness-fairy" type="checkbox">
@@ -306,9 +252,11 @@
 
 <script>
 import API from '@/services/api';
+import PokemonLargeChip from "@/components/PokemonLargeChip";
 
 export default {
-  name: "AdvancedSearchBar",
+  name: "PokedexAdvancedSearchBar",
+  components: {PokemonLargeChip},
   data() {
     return {
       min: 1,

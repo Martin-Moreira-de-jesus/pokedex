@@ -21,6 +21,7 @@
 <script>
 import PokemonLargeChip from "@/components/PokemonLargeChip";
 export default {
+  name: "PokemonCard",
   components: {PokemonLargeChip},
   props: {
     id: {
@@ -45,7 +46,6 @@ export default {
       imageLoading: true,
     }
   },
-  name: "PokemonCard",
   methods: {
     typeClass(type) {
       return `btn-${type}`;
@@ -68,7 +68,9 @@ export default {
 
 <style scoped>
 article {
-  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  width: auto;
   position: relative;
 }
 

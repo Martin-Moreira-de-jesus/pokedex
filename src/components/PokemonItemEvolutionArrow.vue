@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "PokemonDetailEvolutionArrow",
+  name: "PokemonItemEvolutionArrow",
   props: {
     position: {
       type: String,

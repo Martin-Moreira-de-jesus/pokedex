@@ -18,7 +18,7 @@
         </thead>
         <tbody>
         <template v-if="moves.length > 0">
-          <pokemon-move v-for="(move, index) in moves" :key="index" :move="move.move"/>
+          <pokemon-item-move v-for="(move, index) in moves" :key="index" :move="move.move"/>
         </template>
         <template v-else>
           <tr>
@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import PokemonMove from "@/components/PokemonMove";
+import PokemonItemMove from "@/components/PokemonItemMove";
 export default {
-  name: "PokemonMovesDetail",
-  components: {PokemonMove},
+  name: "PokemonItemMoves",
+  components: {PokemonItemMove},
   props: {
     moves: {
       type: Array,

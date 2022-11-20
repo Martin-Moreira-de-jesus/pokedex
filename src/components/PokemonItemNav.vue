@@ -26,7 +26,7 @@
 import {LAST_POKEMON_ID} from "@/services/constants";
 
 export default {
-  name: "PokemonDetailNav",
+  name: "PokemonItemNav",
   emits: ['force-update'],
   props: {
     pokemonId: {

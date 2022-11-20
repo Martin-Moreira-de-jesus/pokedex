@@ -15,12 +15,12 @@
 
 <script>
 export default {
+  name: "PokedexSearchBar",
   data() {
     return {
       searchCriteria: '',
     }
   },
-  name: "SearchBar",
   methods: {
     search() {
       this.$emit('search', this.searchCriteria);

@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "SortOptions",
+  name: "PokedexSortOptions",
   data() {
     return {
       orderBy: 1,

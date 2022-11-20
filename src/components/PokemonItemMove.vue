@@ -17,7 +17,7 @@ import {pokedex} from '@/services/api';
 import PokemonSmallChip from "@/components/PokemonSmallChip";
 
 export default {
-  name: "PokemonMove",
+  name: "PokemonItemMove",
   components: {PokemonSmallChip},
   props: {
     move: {

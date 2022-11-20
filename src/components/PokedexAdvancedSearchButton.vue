@@ -13,7 +13,7 @@ export default {
       isShown: false,
     }
   },
-  name: "AdvancedSearchButton",
+  name: "PokedexAdvancedSearchButton",
   methods: {
     updateVisibility() {
       this.$emit('updateVisibility');

@@ -51,7 +51,7 @@
 <script>
 import PokemonLargeChip from "@/components/PokemonLargeChip";
 export default {
-  name: "BasicDetail",
+  name: "PokemonItemDetail",
   components: {PokemonLargeChip},
   props: {
     pokemon: {

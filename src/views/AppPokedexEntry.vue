@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PokemonDetail from "@/components/PokemonDetail";
+import PokemonDetail from "@/components/PokemonItem";
 export default {
   name: "AppPokedexEntry",
   components: {PokemonDetail},

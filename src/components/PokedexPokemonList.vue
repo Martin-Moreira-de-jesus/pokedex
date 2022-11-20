@@ -1,5 +1,5 @@
 <template>
-  <sort-options @sort="onSort" />
+  <pokedex-sort-options @sort="onSort" />
   <section>
     <div class="bg-white container flex-fill d-flex flex-row flex-wrap justify-content-evenly">
       <pokemon-card v-for="pokemon in pokemons" :id="pokemon.id" :key="pokemon.id" :name="pokemon.name"
@@ -27,9 +27,10 @@ import API from "@/services/api";
 import {Vue3Lottie} from 'vue3-lottie';
 import Loader from '@/assets/lotties/loader.json'
 import 'vue3-lottie/dist/style.css'
-import SortOptions from "@/components/SortOptions";
+import PokedexSortOptions from "@/components/PokedexSortOptions";
 
 export default {
+  name: "PokedexPokemonList",
   data() {
     return {
       strategy: 'list',
@@ -102,9 +103,8 @@ export default {
   mounted() {
     this.getPokemons();
   },
-  name: 'App',
   components: {
-    SortOptions,
+    PokedexSortOptions,
     PokemonCard,
     Vue3Lottie,
   },

@@ -1,10 +1,11 @@
 <template>
   <article class="bg-light overflow-scroll">
     <h4 class="pt-2">Evolution chain</h4>
-    <div v-if="evolutionChain" :class="{'evolution-nodes': evolutionChain.species.name !== 'eevee', 'eevee-nodes': evolutionChain.species.name === 'eevee'}">
-      <pokemon-detail-evolution-node :evolution-chain="evolutionChain"
-                                     :position="evolutionChain.species.name === 'eevee' ? '1-1' : '1-0'"
-                                     :depth="0"/>
+    <div v-if="evolutionChain"
+         :class="{'evolution-nodes': evolutionChain.species.name !== 'eevee', 'eevee-nodes': evolutionChain.species.name === 'eevee'}">
+      <pokemon-item-evolution-node :evolution-chain="evolutionChain"
+                                   :position="evolutionChain.species.name === 'eevee' ? '1-1' : '1-0'"
+                                   :depth="0"/>
     </div>
     <p v-else-if="!hasEvolution" class="text-danger">This pokemon is not part of an evolution chain !</p>
   </article>
@@ -12,12 +13,12 @@
 
 <script>
 import {pokedex} from "@/services/api";
-import PokemonDetailEvolutionNode from "@/components/PokemonDetailEvolutionNode";
 import {extractIdFromUrl} from "@/services/utils";
+import PokemonItemEvolutionNode from "@/components/PokemonItemEvolutionNode";
 
 export default {
-  name: "PokemonDetailEvolutions",
-  components: {PokemonDetailEvolutionNode},
+  name: "PokemonItemEvolution",
+  components: {PokemonItemEvolutionNode},
   props: {
     specie: {
       type: Object,
@@ -37,7 +38,7 @@ export default {
           this.hasEvolution = false;
           return;
         }
-        
+
         let index = extractIdFromUrl(this.specie.evolution_chain.url);
 
         const response = await pokedex.getEvolutionChain(index);

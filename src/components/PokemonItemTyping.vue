@@ -44,10 +44,10 @@
 </template>
 
 <script>
-
 import PokemonSmallChip from "@/components/PokemonSmallChip";
+
 export default {
-  name: "TypingDetail",
+  name: "PokemonItemTyping",
   components: {PokemonSmallChip},
   data() {
     return {

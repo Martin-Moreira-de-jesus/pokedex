@@ -1,6 +1,6 @@
 <template>
   <div class="container bg-white" style="height: 75px;"></div>
-  <pokemon-detail-nav
+  <pokemon-item-nav
       v-if="pokemon.id"
       :pokemon-id="pokemon.id"
       class="container p-0"/>
@@ -17,22 +17,22 @@
             </div>
           </div>
           <div class="col-12 col-xxl-6 justify-content-center">
-            <basic-detail v-if="pokemon.species"
+            <pokemon-item-detail v-if="pokemon.species"
                           :pokemon="pokemon"
                           :species="pokemon.species"
                           @form-chosen="(form) => onFormChosen(form)"/>
           </div>
           <div class="col-12 col-xxl-6 justify-content-center">
-            <stat-detail v-if="pokemon" :pokemon="pokemon"/>
+            <pokemon-item-stats v-if="pokemon" :pokemon="pokemon"/>
           </div>
           <div class="col-12 col-xxl-6 justify-content-center">
-            <typing-detail v-if="pokemon.typesDetail.length > 0" :pokemon-types="pokemon.typesDetail"/>
+            <pokemon-item-typing v-if="pokemon.typesDetail.length > 0" :pokemon-types="pokemon.typesDetail"/>
           </div>
           <div class="col-12 justify-content-center">
-            <pokemon-detail-evolutions v-if="pokemon.species" :specie="pokemon.species" />
+            <pokemon-item-evolution v-if="pokemon.species" :specie="pokemon.species" />
           </div>
           <div class="col-12 justify-content-center">
-            <pokemon-moves-detail v-if="pokemon.moves && pokemon.color" :moves="pokemon.moves" :pokemonColor="pokemon.color"/>
+            <pokemon-item-moves v-if="pokemon.moves && pokemon.color" :moves="pokemon.moves" :pokemonColor="pokemon.color"/>
           </div>
         </div>
       </div>
@@ -42,16 +42,24 @@
 
 <script>
 import api from '@/services/api';
-import TypingDetail from "@/components/TypingDetail";
 import {Pokedex} from "pokeapi-js-wrapper";
-import BasicDetail from "@/components/BasicDetail";
-import StatDetail from "@/components/StatDetail";
-import PokemonDetailNav from "@/components/PokemonDetailNav";
-import PokemonMovesDetail from "@/components/PokemonMovesDetail";
-import PokemonDetailEvolutions from "@/components/PokemonDetailEvolutions";
+import PokemonItemDetail from "@/components/PokemonItemDetail";
+import PokemonItemStats from "@/components/PokemonItemStats";
+import PokemonItemNav from "@/components/PokemonItemNav";
+import PokemonItemMoves from "@/components/PokemonItemMoves";
+import PokemonItemEvolution from "@/components/PokemonItemEvolution";
+import PokemonItemTyping from "@/components/PokemonItemTyping";
 
 export default {
-  components: {PokemonDetailEvolutions, PokemonMovesDetail, PokemonDetailNav, StatDetail, BasicDetail, TypingDetail},
+  name: "PokemonItem",
+  components: {
+    PokemonItemDetail,
+    PokemonItemStats,
+    PokemonItemNav,
+    PokemonItemMoves,
+    PokemonItemEvolution,
+    PokemonItemTyping,
+  },
   data() {
     return {
       pokedex: new Pokedex(),
@@ -70,7 +78,6 @@ export default {
       },
     }
   },
-  name: "PokemonDetail",
   emits: ['force-update'],
   methods: {
     typeColor(type) {
