@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import {mapPokemon, pokedex} from "@/services/api";
+import {pokedex} from "@/services/api";
 import PokemonCard from "@/components/PokemonCard";
 import PokemonItemEvolutionArrow from "@/components/PokemonItemEvolutionArrow";
-import {extractIdFromUrl} from "@/services/utils";
+import {extractIdFromUrl, mapPokemon} from "@/services/utils";
 
 export default {
   name: "PokemonItemEvolutionNode",

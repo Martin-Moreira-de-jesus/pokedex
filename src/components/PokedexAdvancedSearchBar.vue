@@ -251,7 +251,7 @@
 </template>
 
 <script>
-import API from '@/services/api';
+import {pokedex} from '@/services/api';
 import PokemonLargeChip from "@/components/PokemonLargeChip";
 
 export default {
@@ -274,7 +274,7 @@ export default {
       this.isShown = !this.isShown;
     },
     async getGenerations() {
-      this.generations = await API.getGenerations();
+      this.generations = await pokedex.getGenerations();
     },
     onFocusOutMax() {
       if (this.max < this.min) {

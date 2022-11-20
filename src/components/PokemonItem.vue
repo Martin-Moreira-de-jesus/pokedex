@@ -16,7 +16,7 @@
           </div>
           <div class="col-12 col-xxl-6 justify-content-center">
             <div class="bg-light">
-              <pokemon-item-form :pokemon="currentForm"/>
+              <pokemon-item-form v-if="pokemon.sprite" :pokemon="currentForm"/>
             </div>
           </div>
           <div class="col-12 col-xxl-6 justify-content-center">
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import api, {mapPokemon, pokedex} from '@/services/api';
+import {pokedex} from '@/services/api';
 import {Pokedex} from "pokeapi-js-wrapper";
 import PokemonItemForm from "@/components/PokemonItemForm";
 import PokemonItemDetail from "@/components/PokemonItemDetail";
@@ -53,6 +53,7 @@ import PokemonItemNav from "@/components/PokemonItemNav";
 import PokemonItemMoves from "@/components/PokemonItemMoves";
 import PokemonItemEvolution from "@/components/PokemonItemEvolution";
 import PokemonItemTyping from "@/components/PokemonItemTyping";
+import {mapPokemon} from "@/services/utils";
 
 export default {
   name: "PokemonItem",
@@ -116,7 +117,7 @@ export default {
   async mounted() {
     const id = this.$route.params.id;
     try {
-      const pokemonData = await api.getPokemon(id);
+      const pokemonData = await pokedex.getPokemonByName(id);
       this.pokemon = mapPokemon(pokemonData);
       document.title = this.pokemon.name.charAt(0).toUpperCase() + this.pokemon.name.slice(1);
       this.pokemon.height = pokemonData.height / 10;
@@ -132,7 +133,7 @@ export default {
       );
     } catch (err) {
       if (err.response?.status === 404) {
-        this.$router.push('/');
+        this.$router.push({name: 'not-found'});
       } else {
         console.log(err);
         alert("Something went wrong");

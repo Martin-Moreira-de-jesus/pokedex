@@ -1,36 +1,9 @@
 import {Pokedex} from "pokeapi-js-wrapper";
 import Criteria from "@/services/advanced-search";
 import {LAST_POKEMON_ID} from "@/services/constants";
+import {mapPokemons, sortByNameAsc, sortByNameDesc} from "@/services/utils";
 
 export const pokedex = new Pokedex();
-
-function sortByNameDesc(a, b) {
-    if (a.name > b.name) return -1;
-    if (a.name < b.name) return 1;
-    return 0;
-}
-
-function sortByNameAsc(a, b) {
-    if (a.name > b.name) return 1;
-    if (a.name < b.name) return -1;
-    return 0;
-}
-
-export function mapPokemons(raw) {
-    return raw.map((element) => {
-        return {
-            id: parseInt(element.id),
-            name: element.name,
-            sprite: element.sprites.other["official-artwork"].front_default,
-            types: element.types,
-        };
-    });
-}
-
-export function mapPokemon(element) {
-    element.sprite = element.sprites.other["official-artwork"].front_default ?? element.sprites.front_default
-    return element;
-}
 
 function applySort(orderBy, pokemons) {
     let result;
@@ -52,12 +25,6 @@ function applySort(orderBy, pokemons) {
 }
 
 export default {
-    getPokemon: async (identifier) => {
-        return await pokedex.getPokemonByName(identifier);
-    },
-    getPokemonSpecie: async (specie) => {
-        return await pokedex.getPokemonSpeciesByName(specie);
-    },
     getPokemons: async (offset, limit, orderBy = 1) => {
         let { results } = await pokedex.getPokemonsList({
             offset: 0,
@@ -115,10 +82,6 @@ export default {
             pokemons: pokemons,
             isLast: isLast,
         };
-    },
-    getGenerations: async () => {
-        const response = await pokedex.getGenerations();
-        return response.results;
     },
     searchPokemonsAdvanced: async (criteria, offset, limit, orderBy = 1) => {
         let pokemons;
