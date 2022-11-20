@@ -1,39 +1,39 @@
 <template>
   <article class="bg-light">
     <h4 class="pt-2">Typing</h4>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center text-small" style="font-size: 12px;">
       <table class="w-100 h-100 row justify-content-center p-3">
         <tr class="row pb-3 pt-3 border-bottom border-dark">
-          <td class="col-3 d-flex align-items-center justify-content-end">0x</td>
-          <td class="col-9 d-flex flex-row justify-content-center">
+          <td class="col-2 d-flex align-items-center justify-content-end">0x</td>
+          <td class="col-10 d-flex flex-row justify-content-center">
             <pokemon-small-chip v-for="(type, index) in noDamageFrom"
                                 :key="index" :type="type.name" />
           </td>
         </tr>
         <tr class="row pb-3 pt-3 border-bottom border-dark">
-          <td class="col-3 d-flex align-items-center justify-content-end">0.25x</td>
-          <td class="col-9 d-flex flex-row justify-content-center">
+          <td class="col-2 d-flex align-items-center justify-content-end">0.25x</td>
+          <td class="col-10 d-flex flex-row justify-content-center">
             <pokemon-small-chip v-for="(type, index) in quarterDamageFrom"
                                 :key="index" :type="type.name" />
           </td>
         </tr>
         <tr class="row pb-3 pt-3 border-bottom border-dark">
-          <td class="col-3 d-flex align-items-center justify-content-end">0.5x</td>
-          <td class="col-9 d-flex flex-row justify-content-center">
+          <td class="col-2 d-flex align-items-center justify-content-end">0.5x</td>
+          <td class="col-10 d-flex flex-row justify-content-center">
             <pokemon-small-chip v-for="(type, index) in halfDamageFrom"
                                 :key="index" :type="type.name" />
           </td>
         </tr>
         <tr class="row pb-3 pt-3 border-bottom border-dark">
-          <td class="col-3 d-flex align-items-center justify-content-end">2x</td>
-          <td class="col-9 d-flex flex-row justify-content-center">
+          <td class="col-2 d-flex align-items-center justify-content-end">2x</td>
+          <td class="col-10 d-flex flex-row justify-content-center">
             <pokemon-small-chip v-for="(type, index) in doubleDamageFrom"
                                 :key="index" :type="type.name" />
           </td>
         </tr>
         <tr class="row pb-3 pt-3 border-bottom border-dark">
-          <td class="col-3 d-flex align-items-center justify-content-end">4x</td>
-          <td class="col-9 d-flex flex-row justify-content-center">
+          <td class="col-2 d-flex align-items-center justify-content-end">4x</td>
+          <td class="col-10 d-flex flex-row justify-content-center">
             <pokemon-small-chip v-for="(type, index) in quadrupleDamageFrom"
                  :key="index" :type="type.name" />
           </td>
