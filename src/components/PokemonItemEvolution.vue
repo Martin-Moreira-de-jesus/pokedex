@@ -6,7 +6,7 @@
           'evolution-nodes': evolutionChain.species.name !== 'eevee',
           'eevee-nodes': evolutionChain.species.name === 'eevee'
          }"
-         class="">
+         class="overflow-scroll">
       <pokemon-item-evolution-node :evolution-chain="evolutionChain"
                                    :position="evolutionChain.species.name === 'eevee' ? '1-1' : '1-0'"
                                    :depth="0"/>

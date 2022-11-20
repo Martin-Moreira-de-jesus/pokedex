@@ -12,7 +12,7 @@
     </div>
 
     <div class="row">
-      <div class="col-4 fw-bold d-flex justify-content-end p-2 align-items-center" style="width: 30%; font-size: 12px;">Abilities</div>
+      <div class="col-4 fw-bold d-flex justify-content-end p-2 align-items-center text-break" style="width: 30%; font-size: 12px;">Abilities</div>
       <div class="col-8 d-flex align-self-start flex-wrap p-2">
         <pokemon-large-chip v-for="(ability, index) in pokemon.abilities"
                             :key="index"

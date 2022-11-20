@@ -31,7 +31,7 @@
           <div class="col-12 col-xxl-6 justify-content-center">
             <pokemon-item-typing v-if="typesDetail.length" :pokemon-types="typesDetail"/>
           </div>
-          <div class="col-12 justify-content-center overflow-scroll">
+          <div class="col-12 justify-content-center">
             <pokemon-item-evolution v-if="species.id" :specie="species" />
           </div>
           <div class="col-12 justify-content-center">
@@ -118,6 +118,7 @@ export default {
     try {
       const pokemonData = await api.getPokemon(id);
       this.pokemon = mapPokemon(pokemonData);
+      document.title = this.pokemon.name.charAt(0).toUpperCase() + this.pokemon.name.slice(1);
       this.pokemon.height = pokemonData.height / 10;
       this.pokemon.weight = pokemonData.weight / 10;
       this.pokemon.highestStat = this.pokemon.stats.sort((a, b) => {
@@ -145,10 +146,6 @@ export default {
 .pokemon-details {
   width: 90%;
   margin: auto;
-}
-
-.horizontal-overflow-scroll {
-  overflow-x: scroll;
 }
 
 @media (max-width: 900px) {
