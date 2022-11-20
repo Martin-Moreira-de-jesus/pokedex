@@ -17,7 +17,7 @@
                 :height="50"
                 :width="50"
                 v-if="isLoading" />
-    <button v-if="!isFull && !isLoading" class="btn btn-primary text-white" @click="getPokemons">LOAD MORE</button>
+    <button v-if="!isFull && !isLoading" class="btn btn-primary text-white m-2" @click="getPokemons">LOAD MORE</button>
   </section>
 </template>
 
