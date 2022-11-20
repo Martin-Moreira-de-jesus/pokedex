@@ -5,7 +5,7 @@
       <label :for="stat.stat.name"
              class="col-4 fw-bolder d-flex justify-content-end p-2 text-capitalize"
              style="font-size: 12px;">
-        {{ stat.stat.name.toString().replace('special-', 'Sp.') }}
+        {{ stat.stat.name.toString().replace('special-', 'Sp.').replace('attack', 'atk.').replace('defense', 'def.') }}
       </label>
       <div class="progress h-100 col-7 p-0"
            style="height: 30px !important">

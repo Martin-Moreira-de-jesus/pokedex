@@ -1,8 +1,12 @@
 <template>
-  <article class="bg-light overflow-scroll">
+  <article class="bg-light">
     <h4 class="pt-2">Evolution chain</h4>
     <div v-if="evolutionChain"
-         :class="{'evolution-nodes': evolutionChain.species.name !== 'eevee', 'eevee-nodes': evolutionChain.species.name === 'eevee'}">
+         :class="{
+          'evolution-nodes': evolutionChain.species.name !== 'eevee',
+          'eevee-nodes': evolutionChain.species.name === 'eevee'
+         }"
+         class="">
       <pokemon-item-evolution-node :evolution-chain="evolutionChain"
                                    :position="evolutionChain.species.name === 'eevee' ? '1-1' : '1-0'"
                                    :depth="0"/>

@@ -1,14 +1,19 @@
 <template>
-  <div class="container bg-white" style="height: 75px;"></div>
   <pokemon-item-nav
       v-if="pokemon.id"
       :pokemon-id="pokemon.id"
       class="container p-0"/>
-  <div class="container main-bg-pokedex">
-    <article class="pokemon-details bg-white p-5">
+  <div class="container main-bg-pokedex overflow-hidden">
+    <article class="pokemon-details bg-white p-sm-5 pt-2">
       <h2 class="text-uppercase" v-if="pokemon.id">{{ !defaultForm && !!form.name ? form.name : pokemon.name }} {{ fullId }}</h2>
       <div>
         <div class="row g-5 gx-5">
+          <div class="col-12 justify-content-center" v-if="species.flavor_text_entries">
+            <article class="bg-light pb-2">
+              <h4 class="pt-2">Description</h4>
+              <p v-html="species.flavor_text_entries[0].flavor_text"></p>
+            </article>
+          </div>
           <div class="col-12 col-xxl-6 justify-content-center">
             <div class="bg-light">
               <pokemon-item-form :pokemon="currentForm"/>
@@ -26,7 +31,7 @@
           <div class="col-12 col-xxl-6 justify-content-center">
             <pokemon-item-typing v-if="typesDetail.length" :pokemon-types="typesDetail"/>
           </div>
-          <div class="col-12 justify-content-center">
+          <div class="col-12 justify-content-center overflow-scroll">
             <pokemon-item-evolution v-if="species.id" :specie="species" />
           </div>
           <div class="col-12 justify-content-center">
@@ -142,9 +147,13 @@ export default {
   margin: auto;
 }
 
+.horizontal-overflow-scroll {
+  overflow-x: scroll;
+}
+
 @media (max-width: 900px) {
   .pokemon-details {
-  width: 100%;
-}
+    width: 100%;
+  }
 }
 </style>
