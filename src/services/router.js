@@ -1,21 +1,30 @@
 import {createRouter, createWebHistory} from "vue-router";
 import AppPokedex from "@/views/AppPokedex";
 import AppPokedexEntry from "@/views/AppPokedexEntry";
+import AppNotFound from "@/views/AppNotFound";
 
 const DEFAULT_TITLE = 'Pokédex'
 
 const routes = [
     {
-        path: '/pokedex',
+        path: '/',
         name: 'pokedex',
         component: AppPokedex,
     },
     {
-        path: '/pokedex/:id',
+        path: '/:id',
         name: 'pokedex-entry',
         component: AppPokedexEntry,
         meta: {
             title: '',
+        }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: AppNotFound,
+        meta: {
+            title: 'Not Found',
         }
     }
 ];
