@@ -3,14 +3,17 @@
   <main>
     <router-view :key="$route.fullPath"/>
   </main>
+  <app-footer />
 </template>
 
 <script>
 import AppHeader from "@/components/AppHeader";
+import AppFooter from "@/components/AppFooter";
 
 export default {
   name: 'App',
   components: {
+    AppFooter,
     AppHeader,
   },
 }
