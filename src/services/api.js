@@ -28,12 +28,8 @@ export function mapPokemons(raw) {
 }
 
 export function mapPokemon(element) {
-    return {
-        id: parseInt(element.id),
-        name: element.name,
-        sprite: element.sprites.other["official-artwork"].front_default,
-        types: element.types,
-    }
+    element.sprite = element.sprites.other["official-artwork"].front_default ?? element.sprites.front_default
+    return element;
 }
 
 function applySort(orderBy, pokemons) {
