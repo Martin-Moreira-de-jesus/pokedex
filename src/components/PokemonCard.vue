@@ -11,7 +11,7 @@
       <h5 class="p-0 m-0 m-0 text-capitalize" v-html="name"></h5>
       <ul class="d-flex justify-content-around list-unstyled">
         <li v-for="type in types" :key="type.slot">
-          <pokemon-large-chip :class-name="type.type.name" />
+          <pokemon-large-chip :class-name="type.type.name"/>
         </li>
       </ul>
     </div>
@@ -20,6 +20,7 @@
 
 <script>
 import PokemonLargeChip from "@/components/PokemonLargeChip";
+
 export default {
   name: "PokemonCard",
   components: {PokemonLargeChip},
@@ -75,7 +76,8 @@ article {
 }
 
 article:hover {
-   transform: matrix(1.1, 0, 0, 1.1, 0, 2);
+  transform: matrix(1.1, 0, 0, 1.1, 0, 2);
+  cursor: pointer;
 }
 
 .slide-left {
