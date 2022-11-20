@@ -6,12 +6,14 @@
                                      :position="evolutionChain.species.name === 'eevee' ? '1-1' : '1-0'"
                                      :depth="0"/>
     </div>
+    <p v-else-if="!hasEvolution" class="text-danger">This pokemon is not part of an evolution chain !</p>
   </article>
 </template>
 
 <script>
 import {pokedex} from "@/services/api";
 import PokemonDetailEvolutionNode from "@/components/PokemonDetailEvolutionNode";
+import {extractIdFromUrl} from "@/services/utils";
 
 export default {
   name: "PokemonDetailEvolutions",
@@ -24,29 +26,31 @@ export default {
   },
   data() {
     return {
+      hasEvolution: true,
       evolutionChain: null,
     }
   },
   methods: {
     async initEvolutionChain() {
       try {
-        let index = this.specie.evolution_chain.url;
-        index =
-            index.substring(index.indexOf('evolution-chain/'), index.length - 1).replace('evolution-chain/', '');
+        if (!this.specie.evolution_chain) {
+          this.hasEvolution = false;
+          return;
+        }
+        
+        let index = extractIdFromUrl(this.specie.evolution_chain.url);
+
         const response = await pokedex.getEvolutionChain(index);
-        this.evolutionChain = response.chain;
+        if (response.chain.evolves_to.length === 0) {
+          this.hasEvolution = false;
+        } else {
+          this.evolutionChain = response.chain;
+        }
       } catch (err) {
         console.log(err);
         alert('Something went wrong');
       }
     },
-    computeClass() {
-      if (this.pokemon.specie.name !== 'eevee') {
-        return ;
-      }
-
-      return {'eevee-nodes': true};
-    }
   },
   mounted() {
     this.initEvolutionChain();
