@@ -17,7 +17,7 @@
         <pokemon-large-chip v-for="(ability, index) in pokemon.abilities"
                             :key="index"
                             class="me-1 mt-1 fit-content ps-1 pe-1"
-                            :className="pokemon.color"
+                            :className="species.color.name"
                             :content="ability.ability.name"/>
       </div>
     </div>
@@ -38,8 +38,8 @@
         <template v-if="species">
           <pokemon-large-chip v-for="(form, index) in species.varieties"
                               :key="index"
-                              class="me-1 mt-1 fit-content ps-1 pe-1"
-                              :className="pokemon.color"
+                              class="me-1 mt-1 fit-content ps-1 pe-1 pointer-hover"
+                              :className="species.color.name"
                               :content="form.pokemon.name"
                               @click="$emit('form-chosen', form)"/>
         </template>
@@ -80,5 +80,9 @@ export default {
 <style scoped>
 .fit-content {
   width: fit-content;
+}
+
+.pointer-hover {
+  cursor: pointer;
 }
 </style>
