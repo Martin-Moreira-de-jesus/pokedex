@@ -274,7 +274,7 @@ export default {
       this.isShown = !this.isShown;
     },
     async getGenerations() {
-      this.generations = await pokedex.getGenerations();
+      this.generations = (await pokedex.getGenerations()).results;
     },
     onFocusOutMax() {
       if (this.max < this.min) {
